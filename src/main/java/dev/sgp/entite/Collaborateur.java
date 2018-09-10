@@ -2,6 +2,7 @@ package dev.sgp.entite;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.UUID;
 
 public class Collaborateur {
 	String matricule;
@@ -15,6 +16,22 @@ public class Collaborateur {
 	ZonedDateTime dateHeureCreation ;
 	Boolean actif;
 	
+	
+	
+	public Collaborateur(String nom, String prenom, LocalDate dateNaissance, String adresse,
+			String numeroSecuriteSociale, String emailPro) {
+		super();
+		this.matricule = UUID.randomUUID().toString();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.adresse = adresse;
+		NumeroSecuriteSociale = numeroSecuriteSociale;
+		this.emailPro = emailPro;
+		this.dateHeureCreation = ZonedDateTime.now();
+		this.actif = true;
+	}
+
 	public Collaborateur() {
 		super();
 		// TODO Auto-generated constructor stub

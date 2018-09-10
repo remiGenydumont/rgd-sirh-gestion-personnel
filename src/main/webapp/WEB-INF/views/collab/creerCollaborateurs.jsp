@@ -16,10 +16,12 @@
 
 </head>
 <body>
-	<h1>Nouveau Collaborateur</h1>
+
 	<div class="container">
-		<form class="form-horizontal" action="creer" name="creerCollaborateur" method="post">
-			<div class="form-group">	
+		<h1>Nouveau Collaborateur</h1>
+		<form class="form-horizontal" action="creer" name="creerCollaborateur"
+			method="post">
+			<div class="form-group">
 				<label class=" control-label for="nom">Nom :</label> <input
 					class="form-control" type="string" name="nom" id="nom" />
 			</div>
@@ -29,7 +31,7 @@
 			</div>
 			<div class="form-group">
 				<label class=" control-label for="dateNaissance">Date de
-					Naissance :</label> <input class="form-control" type="datetime"
+					Naissance :</label> <input class="form-control" type="Date"
 					name="dateNaissance" id="dateNaissance" />
 			</div>
 			<div class="form-group">
