@@ -5,19 +5,39 @@ import java.time.ZonedDateTime;
 import java.util.UUID;
 
 public class Collaborateur {
-	String matricule;
-	String nom ;
-	String prenom ;
-	LocalDate dateNaissance;
-	String adresse ;
-	String NumeroSecuriteSociale ;
-	String emailPro ;
-	String photo ;
-	ZonedDateTime dateHeureCreation ;
-	Boolean actif;
+	private String matricule;
+	private String nom ;
+	private String prenom ;
+	private LocalDate dateNaissance;
+	private String adresse ;
+	private String NumeroSecuriteSociale ;
+	private String emailPro ;
+	private String photo ;
+	private ZonedDateTime dateHeureCreation ;
+	private Boolean actif;
+	
+	private String intitulePoste;
+	private Departement departement ;
 	
 	
 	
+	public Collaborateur(String nom, String prenom, LocalDate dateNaissance, String adresse,
+			String numeroSecuriteSociale, String emailPro, String intitulePoste, Departement departement) {
+		super();
+		this.matricule = UUID.randomUUID().toString();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.adresse = adresse;
+		NumeroSecuriteSociale = numeroSecuriteSociale;
+		this.emailPro = emailPro;
+		this.dateHeureCreation = ZonedDateTime.now();
+		this.photo = "resources/people.png";
+		this.actif = true;
+		this.intitulePoste = intitulePoste;
+		this.departement = departement;
+	}
+
 	public Collaborateur(String nom, String prenom, LocalDate dateNaissance, String adresse,
 			String numeroSecuriteSociale, String emailPro) {
 		super();
@@ -29,12 +49,16 @@ public class Collaborateur {
 		NumeroSecuriteSociale = numeroSecuriteSociale;
 		this.emailPro = emailPro;
 		this.dateHeureCreation = ZonedDateTime.now();
+		this.photo = "resources/people.png";
 		this.actif = true;
 	}
-
+	
 	public Collaborateur() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.matricule = UUID.randomUUID().toString();
+		this.dateHeureCreation = ZonedDateTime.now();
+		this.photo = "resources/people.png";
+		this.actif = true;
 	}
 	
 	@Override
@@ -104,6 +128,22 @@ public class Collaborateur {
 	}
 	public void setActif(Boolean actif) {
 		this.actif = actif;
+	}
+
+	public String getIntitulePoste() {
+		return intitulePoste;
+	}
+
+	public void setIntitulePoste(String intitulePoste) {
+		this.intitulePoste = intitulePoste;
+	}
+
+	public Departement getDepartement() {
+		return departement;
+	}
+
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
 	}
 
 

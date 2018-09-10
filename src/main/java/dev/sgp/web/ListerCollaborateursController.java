@@ -10,25 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dev.sgp.entite.Collaborateur;
+import dev.sgp.entite.Departement;
 import dev.sgp.service.CollaborateurService;
+import dev.sgp.service.DepartementService;
 import dev.sgp.util.Constantes;
 
 public class ListerCollaborateursController extends HttpServlet {
 
 	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
+	private DepartementService  departementService= Constantes.DEPARTEMENT_SERVICE;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
 	ServletException, IOException {
 
 		List<Collaborateur> collaborateurs = collabService.listerCollaborateurs();
-		System.out.println(collaborateurs.size());
-		for (Collaborateur c : collaborateurs) {
-			System.out.println(c.toString());
-		}
-		
+		List<Departement> departements = departementService.listerDepartement();
 
 		req.setAttribute("collaborateurs", collaborateurs);
+		req.setAttribute("departements", departements);
 		req.getRequestDispatcher("/WEB-INF/views/collab/listerCollaborateurs.jsp")
 		.forward(req, resp);
 	}

@@ -17,7 +17,6 @@ import dev.sgp.service.CollaborateurService;
 import dev.sgp.util.Constantes;
 
 public class CreerCollaborateurContoller extends HttpServlet  {
-	private CollaborateurService collabService = Constantes.COLLAB_SERVICE;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
@@ -42,7 +41,7 @@ public class CreerCollaborateurContoller extends HttpServlet  {
 		StringBuilder emailPro = new StringBuilder(nom).append(".").append(prenom).append(properties.getProperty("suffix_email_pro"));
 		Collaborateur collab = new Collaborateur(nom, prenom, dateNaissance, adresse, numSecuSociale, emailPro.toString());
 		
-		collabService.sauvegarderCollaborateur(collab);
+		Constantes.COLLAB_SERVICE.sauvegarderCollaborateur(collab);
 		resp.sendRedirect("lister");
 		
 	}
